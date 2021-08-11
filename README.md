@@ -1,34 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 参考
 
-## Getting Started
+https://github.com/clerkinc/clerk-nextjs-starter
 
-First, run the development server:
+# 初期セットアップ
 
-```bash
-npm run dev
-# or
-yarn dev
+## Next.js
+
+```
+yarn create next-app . --typescript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## clerk
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+yarn add @clerk/clerk-react
+yarn add @clerk/clerk-sdk-node
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+# tailwind css インストール
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+yarn add -D tailwindcss@latest postcss@latest autoprefixer@latest
 
-## Learn More
+npx tailwindcss init -p
 
-To learn more about Next.js, take a look at the following resources:
+# tailwind.config.js 修正
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+mode: "jit",
+purge: ["./src/**/*.{js,ts,jsx,tsx}"],
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# globals.css 修正
 
-## Deploy on Vercel
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 必要 module のインストール
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+yarn add -D eslint-plugin-simple-import-sort
+yarn add -D prettier
+yarn add -D eslint-config-prettier
+yarn add -D @typescript-eslint/eslint-plugin
+yarn add -D @typescript-eslint/parser
+yarn add -D eslint-plugin-tailwindcss
+yarn add -D @jarrodldavis/eslint-plugin-tailwindcss@latest
+yarn add -D prettier-plugin-tailwind
+```
